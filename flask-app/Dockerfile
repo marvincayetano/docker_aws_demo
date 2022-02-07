@@ -1,18 +1,16 @@
 FROM python:3
-# SET THE DIRECTORY IN DOCKER CONTAINER
+
+# set a directory for the app
 WORKDIR /usr/src/app
 
-# COPY THE FILES TO THE CONTAINER
+# copy all the files to the container
 COPY . .
-
-# NO SUCH FILE ERROR
-RUN pip freeze > requirements.txt .
 
 # install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# EXPOSE SO THAT WE CAN ACCESS IT
+# tell the port number the container should expose
 EXPOSE 5000
 
-# RUN
-CMD ["python", "flask-app/app.py"]
+# run the command
+CMD ["python", "./app.py"]
