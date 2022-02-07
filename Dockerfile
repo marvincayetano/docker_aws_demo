@@ -5,6 +5,9 @@ WORKDIR /usr/src/app
 # COPY THE FILES TO THE CONTAINER
 COPY . .
 
+# NO SUCH FILE ERROR
+RUN pip freeze > requirements.txt .
+
 # install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
